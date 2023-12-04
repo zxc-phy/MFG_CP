@@ -1,6 +1,7 @@
 clear;
 % hold off;
 
+
 % 参数设置
 global zeta varrho_q varrho_h omega_1 omega_2 omega_3 xi mean_h;
 zeta=0; varrho_h=0;
@@ -24,6 +25,9 @@ Nq = length(d); % 空间网格点数
 Nh = length(h); % 信道增益网格点数
 Nt = length(t); % 时间网格点数
 kmax=10;epsilon=10;
+
+data = readtable('pop_1.csv');
+attribute_values = data.pi(Nt)
 
 global p eta1 rate softmax;
     p=0.7;eta1=0.1;
@@ -57,8 +61,10 @@ for l = 1 : Nh
     v_final(:,l)=vector_1;
     m_0(:,l) = vector_2;
 end
-pik=zeros(Nt,1);
-pik(:)=3/10;
+pik = attribute_values;
+% pik=zeros(Nt,1);
+% pik(:)=3/10;
+
 % pik=linspace(0.8,0.9,Nt);
 Lk=zeros(Nt,1);
 Lk(:)=2;
