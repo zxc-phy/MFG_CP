@@ -1,0 +1,10 @@
+%mean field
+function fieldPhi = phi_update(m,r)
+global lambda xi d h t Nq Nh Nt dQ dt dh;
+fieldPhi =zeros(Nt);
+for n=1:Nt-1
+    for q=2:Nq-1
+        for l=2:Nh-1
+            fieldPhi(n) += alambda+xi*(m(n,q,l)*r(n,q,l)*dh) 
+
+end
